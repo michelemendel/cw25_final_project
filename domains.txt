@@ -1,0 +1,16 @@
+# Test site
+
+#juice-shop.herokuapp.com
+#ginandjuice.shop
+testphp.vulnweb.com
+
+# Real sites
+
+#google.com
+#shortcut.io
+#vg.no
+#itera.com
+#dagbladet.no
+#aftenposten.no
+#dn.se
+#aftonbladet.se

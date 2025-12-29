@@ -1,0 +1,24 @@
+#!/bin/bash
+outfile=""
+# Parse args to find -o
+args=("$@")
+for ((i=0; i<$#; i++)); do
+    if [[ "${args[i]}" == "-o" ]]; then
+        outfile="${args[i+1]}"
+        break
+    fi
+done
+
+if [[ -n "$outfile" ]]; then
+    # Clear file
+    : > "$outfile"
+    while read line; do
+        if [[ -n "$line" ]]; then
+             echo "{\"url\":\"https://$line\", \"status_code\":200, \"title\":\"Mock Title\", \"tech\":[\"Go\"], \"ip\":\"1.2.3.4\", \"asn\":\"AS12345\"}" >> "$outfile"
+        fi
+    done
+else
+    while read line; do
+        echo "{\"url\":\"https://$line\", \"status_code\":200, \"title\":\"Mock Title\", \"tech\":[\"Go\"], \"ip\":\"1.2.3.4\", \"asn\":\"AS12345\"}"
+    done
+fi

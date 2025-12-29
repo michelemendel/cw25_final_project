@@ -1,0 +1,26 @@
+nuclei_templates:
+  - 'http/misconfiguration/'
+  - 'http/exposed-panels/'
+nuclei_tags:
+  - 'cve'
+  - 'exposure'
+concurrency: 50
+# Workflow timeout - use duration format (e.g., "60m", "2h")
+# This is the maximum time a workflow can run before timing out
+timeout: 90m
+output_dir: 'out'
+# Subfinder configuration
+subfinder:
+  # Use all available sources for enumeration (slower but more comprehensive)
+  use_all_sources: true
+  # Use recursive sources to find subdomains recursively
+  recursive: true
+  # Active enumeration: perform DNS resolution to only show subdomains that actually resolve
+  # This filters out wildcard DNS entries and invalid subdomains (slower but more accurate)
+  active: true
+# Httpx configuration
+httpx:
+  # Filter out status codes (comma-separated, e.g., "404,403,401")
+  # This prevents 404 pages from being passed to Nuclei, saving time
+  # Set to empty string "" to include all status codes
+  filter_status_codes: '404'
