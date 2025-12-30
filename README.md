@@ -12,6 +12,62 @@ This project implements an automated passive reconnaissance pipeline using [go-w
 - **Structured Reporting**: Generates Markdown reports and JSONL data for findings.
 - **Resilience**: Includes retry logic for transient errors.
 
+## Pipeline Architecture
+
+The following diagram illustrates the pipeline workflow, showing activities and the files they produce:
+
+```mermaid
+flowchart TD
+    Start([Start: domains.txt]) --> ParseScope[ParseScope Activity]
+    ParseScope --> scope[scope.json]
+
+    scope --> DiscoverSubdomains[DiscoverSubdomains Activity]
+    DiscoverSubdomains --> subfinder[subdomains_subfinder.jsonl<br/>Passive enumeration]
+    DiscoverSubdomains --> bruteforce{Brute-force<br/>enabled?}
+    bruteforce -->|Yes| puredns[subdomains_bruteforce.jsonl<br/>Active enumeration]
+    bruteforce -->|No| merge
+    subfinder --> merge[Merge & Deduplicate]
+    puredns --> merge
+    merge --> subdomains[subdomains.jsonl]
+
+    subdomains --> IdentifyLiveHosts[IdentifyLiveHosts Activity]
+    IdentifyLiveHosts --> live[live_hosts.jsonl]
+
+    live --> ScanVulnerabilities[ScanVulnerabilities Activity]
+    ScanVulnerabilities --> vulns[vulnerability_findings.jsonl]
+
+    subdomains --> GenerateReport[GenerateReport Activity]
+    live --> GenerateReport
+    vulns --> GenerateReport
+    GenerateReport --> report[report.md]
+    GenerateReport --> summary[report-summary.md]
+
+    report --> End([End])
+    summary --> End
+
+    style ParseScope fill:#e1f5ff
+    style DiscoverSubdomains fill:#e1f5ff
+    style IdentifyLiveHosts fill:#e1f5ff
+    style ScanVulnerabilities fill:#e1f5ff
+    style GenerateReport fill:#e1f5ff
+    style scope fill:#fff4e1
+    style subfinder fill:#fff4e1
+    style bruteforce fill:#ffe1f5
+    style puredns fill:#fff4e1
+    style subdomains fill:#fff4e1
+    style live fill:#fff4e1
+    style vulns fill:#fff4e1
+    style report fill:#e1ffe1
+    style summary fill:#e1ffe1
+```
+
+**Legend:**
+
+- 🔵 **Blue boxes**: Activities (workflow steps)
+- 🟡 **Yellow boxes**: Intermediate/output files (JSONL/JSON)
+- 🟣 **Pink diamond**: Conditional step (brute-force enumeration)
+- 🟢 **Green boxes**: Final report files
+
 ## Documentation
 
 - [Project Specification](docs/spec.md): Detailed project requirements and architecture.

@@ -75,7 +75,25 @@ vulnerability_templates:
 #
 # Note: Tags work in combination with templates - both filters apply
 vulnerability_tags: [cve, exposure, rce, sqli]
+
+# Concurrency: Number of parallel nuclei processes to run during vulnerability scanning
+# The vulnerability scanner splits all live hosts into batches and runs multiple nuclei
+# processes in parallel to speed up scanning. Each process scans a subset of the URLs.
+#
+# How it works:
+#   - URLs are divided into N batches (where N = concurrency value)
+#   - Each batch runs in a separate nuclei process simultaneously
+#   - Results from all batches are merged into the final output file
+#
+# Recommendations:
+#   - LOW (10-20): For slower systems or when scanning many targets to avoid overwhelming the system
+#   - MEDIUM (30-50): Good balance for most systems (default: 50)
+#   - HIGH (50-100+): For powerful systems with many CPU cores and sufficient memory
+#
+# Note: Higher concurrency = faster scans but more CPU/memory usage. If you experience
+# system slowdowns or out-of-memory errors, reduce this value.
 concurrency: 50
+
 # Workflow timeout - use duration format (e.g., "60m", "2h")
 # This is the maximum time a workflow can run before timing out
 timeout: 90m

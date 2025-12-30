@@ -31,4 +31,3 @@ dn.se
 
 #juice-shop.herokuapp.com
 #pentest-ground.com:7001/console/login/LoginForm.jsp
-ˆ

@@ -427,7 +427,7 @@ func (a *Activities) IdentifyLiveHosts(ctx context.Context, domain string) error
 
 	var domains []string
 	domainSet := make(map[string]bool) // Track unique domains
-	
+
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		var sub Subdomain
@@ -445,14 +445,14 @@ func (a *Activities) IdentifyLiveHosts(ctx context.Context, domain string) error
 			domainSet[hostname] = true
 		}
 	}
-	
+
 	// Always include the root domain itself (if not already in the list)
 	if !domainSet[domain] {
 		domains = append(domains, domain)
 		domainSet[domain] = true
 		log.Printf("%s: IdentifyLiveHosts: Added root domain to scan list", domain)
 	}
-	
+
 	log.Printf("%s: IdentifyLiveHosts: Found %d domains (including root domain)", domain, len(domains))
 
 	if err := scanner.Err(); err != nil {
@@ -568,7 +568,97 @@ func (a *Activities) ScanVulnerabilities(ctx context.Context, domain string) err
 
 	log.Printf("%s: ScanVulnerabilities: Found %d live hosts to scan", domain, len(urls))
 
-	targetsFile := filepath.Join(outDir, "vulnerability_targets_temp.txt")
+	// Determine concurrency level
+	concurrency := a.Config.Concurrency
+	if concurrency <= 0 {
+		concurrency = 10 // Default to 10 if not configured
+	}
+
+	// If we have fewer URLs than concurrency, just use one batch
+	if len(urls) <= concurrency {
+		return a.runSingleVulnerabilityScan(ctx, domain, urls, outputFile)
+	}
+
+	// Split URLs into batches for parallel processing
+	batchSize := (len(urls) + concurrency - 1) / concurrency // Ceiling division
+	log.Printf("%s: ScanVulnerabilities: Splitting %d URLs into %d batches (concurrency: %d)", domain, len(urls), concurrency, concurrency)
+
+	// Create temporary output files for each batch
+	type batchResult struct {
+		index int
+		err   error
+	}
+	results := make(chan batchResult, concurrency)
+	tempFiles := make([]string, concurrency)
+
+	// Run parallel scans
+	for i := 0; i < concurrency; i++ {
+		start := i * batchSize
+		end := start + batchSize
+		if end > len(urls) {
+			end = len(urls)
+		}
+		if start >= len(urls) {
+			break
+		}
+
+		batch := urls[start:end]
+		tempFile := filepath.Join(outDir, fmt.Sprintf("vulnerability_findings_batch_%d.jsonl", i))
+		tempFiles[i] = tempFile
+
+		go func(batchIndex int, batchURLs []string, tempOutputFile string) {
+			err := a.runSingleVulnerabilityScan(ctx, domain, batchURLs, tempOutputFile)
+			results <- batchResult{index: batchIndex, err: err}
+		}(i, batch, tempFile)
+	}
+
+	// Wait for all batches to complete
+	var scanErrors []error
+	for i := 0; i < concurrency && i*batchSize < len(urls); i++ {
+		result := <-results
+		if result.err != nil {
+			scanErrors = append(scanErrors, fmt.Errorf("batch %d: %w", result.index, result.err))
+		}
+	}
+
+	// Merge all batch results into the final output file
+	if err := a.mergeVulnerabilityResults(outputFile, tempFiles); err != nil {
+		// Cleanup temp files
+		for _, tf := range tempFiles {
+			os.Remove(tf)
+		}
+		return fmt.Errorf("failed to merge vulnerability results: %w", err)
+	}
+
+	// Cleanup temp files
+	for _, tf := range tempFiles {
+		os.Remove(tf)
+	}
+
+	// Log any errors but don't fail if we got some results
+	if len(scanErrors) > 0 {
+		log.Printf("%s: ScanVulnerabilities: %d batch(es) had errors (continuing with successful results)", domain, len(scanErrors))
+	}
+
+	// Count final results
+	if count, err := countVulnerabilityFindings(outputFile); err == nil {
+		log.Printf("%s: ScanVulnerabilities: Completed - found %d vulnerabilities", domain, count)
+	} else {
+		log.Printf("%s: ScanVulnerabilities: Completed", domain)
+	}
+
+	return nil
+}
+
+// runSingleVulnerabilityScan runs nuclei on a single batch of URLs
+func (a *Activities) runSingleVulnerabilityScan(ctx context.Context, domain string, urls []string, outputFile string) error {
+	if len(urls) == 0 {
+		// Create empty file
+		os.Create(outputFile)
+		return nil
+	}
+
+	targetsFile := outputFile + "_targets.txt"
 	tf, err := os.Create(targetsFile)
 	if err != nil {
 		return fmt.Errorf("failed to create targets file: %w", err)
@@ -602,20 +692,52 @@ func (a *Activities) ScanVulnerabilities(ctx context.Context, domain string) err
 	if err := cmd.Run(); err != nil {
 		// Check if output file was created (vulnerability scanner may exit with non-zero but still produce results)
 		if info, statErr := os.Stat(outputFile); statErr == nil && info.Size() > 0 {
-			log.Printf("%s: ScanVulnerabilities: Exited with error but produced output", domain)
-			if count, err := countVulnerabilityFindings(outputFile); err == nil {
-				log.Printf("%s: ScanVulnerabilities: Completed - found %d vulnerabilities", domain, count)
-			}
+			// File exists and has content, so scan succeeded even with non-zero exit
 			return nil
 		}
 		return fmt.Errorf("vulnerability scan failed: %v, stderr: %s", err, stderr.String())
 	}
 
-	// vulnerability scan completed successfully
-	if count, err := countVulnerabilityFindings(outputFile); err == nil {
-		log.Printf("%s: ScanVulnerabilities: Completed - found %d vulnerabilities", domain, count)
-	} else {
-		log.Printf("%s: ScanVulnerabilities: Completed - no vulnerabilities found", domain)
+	return nil
+}
+
+// mergeVulnerabilityResults merges multiple JSONL files into a single output file
+func (a *Activities) mergeVulnerabilityResults(outputFile string, tempFiles []string) error {
+	outFile, err := os.Create(outputFile)
+	if err != nil {
+		return fmt.Errorf("failed to create output file: %w", err)
+	}
+	defer outFile.Close()
+
+	for _, tempFile := range tempFiles {
+		if tempFile == "" {
+			continue
+		}
+		f, err := os.Open(tempFile)
+		if err != nil {
+			if os.IsNotExist(err) {
+				continue // Skip missing files (batch may have had no results)
+			}
+			return fmt.Errorf("failed to open temp file %s: %w", tempFile, err)
+		}
+
+		scanner := bufio.NewScanner(f)
+		for scanner.Scan() {
+			// Write line directly to output (it's already JSONL)
+			if _, err := outFile.Write(scanner.Bytes()); err != nil {
+				f.Close()
+				return fmt.Errorf("failed to write to output file: %w", err)
+			}
+			if _, err := outFile.WriteString("\n"); err != nil {
+				f.Close()
+				return fmt.Errorf("failed to write newline: %w", err)
+			}
+		}
+		f.Close()
+
+		if err := scanner.Err(); err != nil {
+			return fmt.Errorf("error reading temp file %s: %w", tempFile, err)
+		}
 	}
 
 	return nil
