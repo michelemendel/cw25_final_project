@@ -1,12 +1,12 @@
 # Production sites (typically have fewer vulnerabilities)
 
-portswigger.net
 aftenposten.no
 aftonbladet.se
 dagbladet.no
 dn.se
 google.com
 itera.com
+portswigger.net
 shortcut.io
 vg.no
 
@@ -15,19 +15,19 @@ vg.no
 
 #demo.testfire.net
 #ginandjuice.shop
+#google-gruyere.appspot.com/606449110093000614466175116457519865578
 #itsecgames.com
+#pentest-ground.com:81
+#pentest-ground.com:5013
+#pentest-ground.com:4280
+#xss-game.appspot.com/level1/frame
+#testasp.vulnweb.com
+#testphp.vulnweb.com
+#vulnweb.com
+#zero.webappsecurity.com
 
 
 # Sites with no vulnerabilities (for testing/demonstration)
 
-juice-shop.herokuapp.com
-#google-gruyere.appspot.com/606449110093000614466175116457519865578
-#testasp.vulnweb.com
-#testphp.vulnweb.com
-#pentest-ground.com:81
-#pentest-ground.com:4280
-#pentest-ground.com:5013
+#juice-shop.herokuapp.com
 #pentest-ground.com:7001/console/login/LoginForm.jsp
-#vulnweb.com
-#xss-game.appspot.com/level1/frame
-#zero.webappsecurity.com

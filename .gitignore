@@ -29,3 +29,6 @@ wordlists/
 
 # MacOS
 .DS_Store
+
+# Trunk
+.trunk/

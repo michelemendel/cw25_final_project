@@ -9,6 +9,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/cschleiden/go-workflows/backend/sqlite"
@@ -191,6 +192,7 @@ func startWorkflows(cfg *Config, domains []string) {
 		err       error
 	}
 	workflowTimings := make(map[string]*workflowTiming)
+	var timingsMutex sync.RWMutex
 	overallStartTime := time.Now()
 
 	for _, domain := range domains {
@@ -243,6 +245,7 @@ func startWorkflows(cfg *Config, domains []string) {
 				// Count running workflows
 				running := 0
 				completed := 0
+				timingsMutex.RLock()
 				for _, timing := range workflowTimings {
 					if timing.completed {
 						completed++
@@ -251,27 +254,45 @@ func startWorkflows(cfg *Config, domains []string) {
 					}
 				}
 				total := len(workflowTimings)
+				timingsMutex.RUnlock()
 				elapsed := time.Since(overallStartTime)
 				log.Printf("⏳ Progress: %d running, %d of %d completed | Elapsed: %v", running, completed, total, elapsed.Round(time.Second))
 			}
 		}
 	}()
 
-	// Wait for all workflows
+	// Wait for all workflows concurrently
+	var wg sync.WaitGroup
 	for _, run := range runs {
-		timing := workflowTimings[run.InstanceID]
-		if err := c.WaitForWorkflowInstance(ctx, run, workflowTimeout); err != nil {
-			timing.endTime = time.Now()
-			timing.completed = true
-			timing.err = err
-			log.Printf("❌ %s: Workflow recon failed or timed out: %v", timing.domain, err)
-		} else {
-			timing.endTime = time.Now()
-			timing.completed = true
-			duration := timing.endTime.Sub(timing.startTime)
-			log.Printf("✅ %s: Workflow recon completed in %v", timing.domain, duration.Round(time.Second))
-		}
+		wg.Add(1)
+		go func(run *workflow.Instance) {
+			defer wg.Done()
+			timingsMutex.RLock()
+			timing := workflowTimings[run.InstanceID]
+			startTime := timing.startTime
+			domain := timing.domain
+			timingsMutex.RUnlock()
+
+			if err := c.WaitForWorkflowInstance(ctx, run, workflowTimeout); err != nil {
+				endTime := time.Now()
+				timingsMutex.Lock()
+				timing.endTime = endTime
+				timing.completed = true
+				timing.err = err
+				timingsMutex.Unlock()
+				log.Printf("❌ %s: Workflow recon failed or timed out: %v", domain, err)
+			} else {
+				endTime := time.Now()
+				timingsMutex.Lock()
+				timing.endTime = endTime
+				timing.completed = true
+				timingsMutex.Unlock()
+				duration := endTime.Sub(startTime)
+				log.Printf("✅ %s: Workflow recon completed in %v", domain, duration.Round(time.Second))
+			}
+		}(run)
 	}
+	wg.Wait()
 
 	// Stop progress indicator
 	progressCancel()
