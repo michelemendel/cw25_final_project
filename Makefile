@@ -1,4 +1,4 @@
-.PHONY: all build run run-mock clean test
+.PHONY: all build run run-mock clean
 
 all: build
 
@@ -6,7 +6,10 @@ build:
 	@mkdir -p bin
 	go build -o bin/recon-pipeline ./cmd/recon-pipeline
 
-run: build
+run:
+	./bin/recon-pipeline
+
+build-run: build
 	./bin/recon-pipeline
 
 run-mock: build
@@ -15,6 +18,3 @@ run-mock: build
 
 clean:
 	rm -rf bin out
-
-test:
-	go test -v ./...

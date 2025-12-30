@@ -21,7 +21,7 @@ scanning, retry logic, and structured reporting for bug bounty / pentest workflo
 - **Programming language**: Golang (concurrent programming, CLI integration)
 - **Task orchestration**: go-workflows
   - One workflow run per domain
-  - Activities: `ParseScope` → `RunSubfinder` → `RunHttpx` → `RunNuclei` → `GenerateReport`
+  - Activities: `ParseScope` → `DiscoverSubdomains` → `IdentifyLiveHosts` → `ScanVulnerabilities` → `GenerateReport`
   - Activity retries + backoff for transient errors
   - Multiple workers for domain parallelism
 
@@ -35,8 +35,8 @@ scanning, retry logic, and structured reporting for bug bounty / pentest workflo
   - `config.yaml`:
 
 ```yaml
-nuclei_templates: ['http/misconfiguration/', 'http/exposed-panels/']
-nuclei_tags: ['cve', 'exposure']
+vulnerability_templates: ['http/misconfiguration/', 'http/exposed-panels/']
+vulnerability_tags: ['cve', 'exposure']
 concurrency: 50
 timeout: 10s
 output_dir: 'out'
@@ -66,7 +66,7 @@ output_dir: 'out'
 - **Input**:
 - `out/<domain>/live_hosts.jsonl` (extract URLs)
 - Template set from `config.yaml`
-- **Output**: `out/<domain>/nuclei_findings.jsonl`
+- **Output**: `out/<domain>/vulnerability_findings.jsonl`
 
 ### 5. Aggregation & reporting
 
@@ -75,7 +75,7 @@ output_dir: 'out'
   - scope.json
   - subdomains.jsonl
   - live_hosts.jsonl
-  - nuclei_findings.jsonl
+  - vulnerability_findings.jsonl
 - **Output**:
 - `out/<domain>/report.md`
 - `out/report-summary.md` (global stats across domains)
@@ -102,7 +102,7 @@ output_dir: 'out'
     │ │ ├── scope.json
     │ │ ├── subdomains.jsonl
     │ │ ├── live_hosts.jsonl
-    │ │ ├── nuclei_findings.jsonl
+    │ │ ├── vulnerability_findings.jsonl
     │ │ └── report.md
     │ └── report-summary.md
     └── go.mod
@@ -110,7 +110,7 @@ output_dir: 'out'
 ## Success Criteria
 
 - ✅ Parallel domain processing via go-workflows
-- ✅ Configurable nuclei templates/tags
+- ✅ Configurable vulnerability templates/tags
 - ✅ Clean JSONL data flow (no TXT files)
 - ✅ Per-task retry logic
 - ✅ Professional Markdown reports with stats/tables

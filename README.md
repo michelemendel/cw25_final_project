@@ -14,7 +14,6 @@ This project implements an automated passive reconnaissance pipeline using [go-w
 ## Documentation
 
 - [Project Specification](docs/spec.md): Detailed project requirements and architecture.
-- [Test Sites](docs/test_sites.md): List of sites used for testing.
 
 ## Prerequisites
 
@@ -52,7 +51,7 @@ Note: These installation instructions are for macOS. For other operating systems
 
 ### Configuration
 
-Edit `config.yaml` to configure scanner settings, timeout, and output directory.
+Edit `config.yaml` to configure scanner settings, timeout, output directory, and other settings.
 Edit `domains.txt` to add the list of root domains to scan.
 
 ### Build and Run
@@ -65,40 +64,26 @@ make build
 
 This will create the executable at `bin/recon-pipeline`.
 
-To run the pipeline:
+Then run:
 
 ```bash
 make run
 ```
 
-Or directly:
+To build and run the pipeline in one fell swoop:
 
 ```bash
-./bin/recon-pipeline
+make build-run
 ```
 
 ### Output
 
 Results are saved in the `out/` directory (or as configured in `config.yaml`), organized by domain.
 
-- `scope.json`
-- `subdomains.jsonl`
-- `live_hosts.jsonl`
-- `nuclei_findings.jsonl`
-- `report.md`
+- `scope.json` - Domain scope configuration with timestamp metadata
+- `subdomains.jsonl` - Discovered subdomains from Subfinder enumeration (JSONL format)
+- `live_hosts.jsonl` - Live web hosts identified by httpx with URL, status code, title, technology stack, IP, and ASN information
+- `vulnerability_findings.jsonl` - Vulnerability findings from nuclei scans including severity, CVE IDs, and matched endpoints
+- `report.md` - Per-domain markdown report with summary statistics and vulnerability findings table
 
-Global summary: `out/report-summary.md`
-
-## Development
-
-Run tests:
-
-```bash
-make test
-```
-
-Clean build artifacts:
-
-```bash
-make clean
-```
+Global summary: `out/report-summary.md` - Aggregated statistics across all scanned domains

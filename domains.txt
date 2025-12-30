@@ -1,8 +1,8 @@
-# Test site
+# Test sites
 
 #juice-shop.herokuapp.com
-#ginandjuice.shop
-testphp.vulnweb.com
+ginandjuice.shop
+#testphp.vulnweb.com
 
 # Real sites
 
@@ -11,6 +11,6 @@ testphp.vulnweb.com
 #vg.no
 #itera.com
 #dagbladet.no
-#aftenposten.no
+aftenposten.no
 #dn.se
 #aftonbladet.se

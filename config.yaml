@@ -1,7 +1,7 @@
-nuclei_templates:
+vulnerability_templates:
   - 'http/misconfiguration/'
   - 'http/exposed-panels/'
-nuclei_tags:
+vulnerability_tags:
   - 'cve'
   - 'exposure'
 concurrency: 50
@@ -21,6 +21,6 @@ subfinder:
 # Httpx configuration
 httpx:
   # Filter out status codes (comma-separated, e.g., "404,403,401")
-  # This prevents 404 pages from being passed to Nuclei, saving time
+  # This prevents 404 pages from being passed to vulnerability scanner, saving time
   # Set to empty string "" to include all status codes
   filter_status_codes: '404'
