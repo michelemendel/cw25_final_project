@@ -4,6 +4,8 @@ bin/recon-pipeline
 
 # Output directory
 out/
+# Various out directories
+out_*/
 
 # Go build artifacts
 *.exe
@@ -21,8 +23,6 @@ out/
 # Go workspace file
 go.work
 
-# Various out directories
-out_*/
 
 # Wordlists
 wordlists/

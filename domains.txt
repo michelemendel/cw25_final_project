@@ -1,14 +1,29 @@
 # Production sites (typically have fewer vulnerabilities)
 
-#aftenposten.no
-#aftonbladet.se
+aftenposten.no
+aftonbladet.se
 dagbladet.no
 dn.se
-#google.com
-#itera.com
-#portswigger.net
-#shortcut.io
-#vg.no
+google.com
+itera.com
+portswigger.net
+shortcut.io
+vg.no
+israel.bularmory.com
+smart-bell.net
+myzmanim.com
+btl.gov.il
+nbn.org.il
+mosaiske.dk
+dmt.oslo.no
+jfst.se
+aliyapp.org
+olim.tech
+builtin.com
+mycar-israel.com
+citycar.co.il
+osherad.co.il
+watchseries.mn/home
 
 
 # Sites with vulnerabilities (for testing/demonstration)

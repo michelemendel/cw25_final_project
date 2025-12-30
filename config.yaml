@@ -44,7 +44,8 @@ httpx:
 #   MEDIUM: http/cves/, http/misconfiguration/, http/exposures/
 #   SLOW: http/ (scans everything)
 vulnerability_templates:
-  - http/cves/, http/misconfiguration/, http/exposures/
+  - http/
+  # - http/cves/, http/misconfiguration/, http/exposures/
 
 # Tags: Filter templates by vulnerability tags (comma-separated in Nuclei)
 # Examples:
@@ -74,7 +75,8 @@ vulnerability_templates:
 #   SLOW: [] - no filtering (scans all templates matching the template paths above)
 #
 # Note: Tags work in combination with templates - both filters apply
-vulnerability_tags: [cve, exposure, rce, sqli]
+vulnerability_tags: []
+# vulnerability_tags: [cve, exposure, rce, sqli]
 
 # Concurrency: Number of parallel nuclei processes to run during vulnerability scanning
 # The vulnerability scanner splits all live hosts into batches and runs multiple nuclei
@@ -92,7 +94,7 @@ vulnerability_tags: [cve, exposure, rce, sqli]
 #
 # Note: Higher concurrency = faster scans but more CPU/memory usage. If you experience
 # system slowdowns or out-of-memory errors, reduce this value.
-concurrency: 100
+concurrency: 80
 
 # Workflow timeout - use duration format (e.g., "60m", "2h")
 # This is the maximum time a workflow can run before timing out
