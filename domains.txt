@@ -1,7 +1,7 @@
 # Production sites (typically have fewer vulnerabilities)
 
-aftenposten.no
-aftonbladet.se
+#aftenposten.no
+#aftonbladet.se
 dagbladet.no
 dn.se
 #google.com

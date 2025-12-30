@@ -92,7 +92,7 @@ vulnerability_tags: [cve, exposure, rce, sqli]
 #
 # Note: Higher concurrency = faster scans but more CPU/memory usage. If you experience
 # system slowdowns or out-of-memory errors, reduce this value.
-concurrency: 50
+concurrency: 100
 
 # Workflow timeout - use duration format (e.g., "60m", "2h")
 # This is the maximum time a workflow can run before timing out

@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -320,6 +321,35 @@ func startWorkflows(cfg *Config, domains []string) {
 	log.Printf("Total time: %v", overallDuration.Round(time.Second))
 	log.Println("=" + strings.Repeat("=", 60) + "=")
 	log.Println()
+
+	// Write timing summary to report-summary.md
+	summaryFile := filepath.Join(cfg.OutputDir, "report-summary.md")
+	sf, err := os.OpenFile(summaryFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err == nil {
+		defer sf.Close()
+		sf.WriteString("\n## Timing Summary\n\n")
+		sf.WriteString("```\n")
+		sf.WriteString(strings.Repeat("=", 62) + "\n")
+		sf.WriteString("TIMING SUMMARY\n")
+		sf.WriteString(strings.Repeat("=", 62) + "\n")
+		for _, run := range runs {
+			timing := workflowTimings[run.InstanceID]
+			if timing.completed {
+				duration := timing.endTime.Sub(timing.startTime)
+				status := "✅"
+				if timing.err != nil {
+					status = "❌"
+				}
+				sf.WriteString(fmt.Sprintf("%s %s: %v\n", status, timing.domain, duration.Round(time.Second)))
+			}
+		}
+		sf.WriteString(strings.Repeat("-", 62) + "\n")
+		sf.WriteString(fmt.Sprintf("Total time: %v\n", overallDuration.Round(time.Second)))
+		sf.WriteString(strings.Repeat("=", 62) + "\n")
+		sf.WriteString("```\n")
+	} else {
+		log.Printf("Warning: Failed to write timing summary to file: %v", err)
+	}
 
 	log.Println("All tasks completed.")
 }
