@@ -1,14 +1,11 @@
 vulnerability_templates:
-  - 'http/misconfiguration/'
-  - 'http/exposed-panels/'
-vulnerability_tags:
-  - 'cve'
-  - 'exposure'
+  - http/ # All HTTP templates for maximum coverage
+vulnerability_tags: [] # Empty = no tag filtering, scan everything
 concurrency: 50
 # Workflow timeout - use duration format (e.g., "60m", "2h")
 # This is the maximum time a workflow can run before timing out
 timeout: 90m
-output_dir: 'out'
+output_dir: out
 # Subfinder configuration
 subfinder:
   # Use all available sources for enumeration (slower but more comprehensive)
@@ -21,7 +18,7 @@ subfinder:
   # Brute-force enumeration: try common subdomain names from a wordlist
   # This is slower but can find subdomains that passive enumeration misses
   brute_force: true # Set to true to enable brute-force
-  wordlist: 'wordlists/subdomains-top1million-5000.txt' # Path to wordlist file
+  wordlist: wordlists/subdomains-top1million-5000.txt # Path to wordlist file
   brute_force_threads: 100 # Number of concurrent DNS queries for brute-force
   resolvers_file: '' # Path to DNS resolvers file (optional, defaults to ~/.config/puredns/resolvers.txt, will be auto-generated if missing)
 # Httpx configuration

@@ -1,38 +1,33 @@
-# Sites
+# Production sites (typically have fewer vulnerabilities)
+
+portswigger.net
+aftenposten.no
+aftonbladet.se
+dagbladet.no
+dn.se
+google.com
+itera.com
+shortcut.io
+vg.no
 
 
-# Sites with some vulnerabilities
+# Sites with vulnerabilities (for testing/demonstration)
 
-#portswigger.net
-
-
-# Sites with no vulnerabilities
-
-#aftenposten.no
-#aftonbladet.se
-#dagbladet.no
-#dn.se
-#google.com
-#itera.com
-#shortcut.io
-#vg.no
-
-
-# Test sites with no vulnerabilities
-
-#juice-shop.herokuapp.com
+#demo.testfire.net
 #ginandjuice.shop
-#testphp.vulnweb.com
-#testasp.vulnweb.com
 #itsecgames.com
-#vulnweb.com
-#pentest-ground.com:5013
-#pentest-ground.com:7001/console/login/LoginForm.jsp
+
+
+# Sites with no vulnerabilities (for testing/demonstration)
+
+juice-shop.herokuapp.com
+#google-gruyere.appspot.com/606449110093000614466175116457519865578
+#testasp.vulnweb.com
+#testphp.vulnweb.com
 #pentest-ground.com:81
 #pentest-ground.com:4280
-#zero.webappsecurity.com
-#demo.testfire.net
+#pentest-ground.com:5013
+#pentest-ground.com:7001/console/login/LoginForm.jsp
+#vulnweb.com
 #xss-game.appspot.com/level1/frame
-#google-gruyere.appspot.com/606449110093000614466175116457519865578
-
-
+#zero.webappsecurity.com
