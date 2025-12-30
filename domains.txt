@@ -1,16 +1,38 @@
-# Test sites
+# Sites
 
-#juice-shop.herokuapp.com
-ginandjuice.shop
-#testphp.vulnweb.com
 
-# Real sites
+# Sites with some vulnerabilities
 
+#portswigger.net
+
+
+# Sites with no vulnerabilities
+
+#aftenposten.no
+#aftonbladet.se
+#dagbladet.no
+#dn.se
 #google.com
+#itera.com
 #shortcut.io
 #vg.no
-#itera.com
-#dagbladet.no
-aftenposten.no
-#dn.se
-#aftonbladet.se
+
+
+# Test sites with no vulnerabilities
+
+#juice-shop.herokuapp.com
+#ginandjuice.shop
+#testphp.vulnweb.com
+#testasp.vulnweb.com
+#itsecgames.com
+#vulnweb.com
+#pentest-ground.com:5013
+#pentest-ground.com:7001/console/login/LoginForm.jsp
+#pentest-ground.com:81
+#pentest-ground.com:4280
+#zero.webappsecurity.com
+#demo.testfire.net
+#xss-game.appspot.com/level1/frame
+#google-gruyere.appspot.com/606449110093000614466175116457519865578
+
+
