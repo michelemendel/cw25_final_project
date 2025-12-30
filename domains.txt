@@ -4,11 +4,11 @@ aftenposten.no
 aftonbladet.se
 dagbladet.no
 dn.se
-google.com
-itera.com
-portswigger.net
-shortcut.io
-vg.no
+#google.com
+#itera.com
+#portswigger.net
+#shortcut.io
+#vg.no
 
 
 # Sites with vulnerabilities (for testing/demonstration)
@@ -31,3 +31,4 @@ vg.no
 
 #juice-shop.herokuapp.com
 #pentest-ground.com:7001/console/login/LoginForm.jsp
+ˆ

@@ -1,11 +1,4 @@
-vulnerability_templates:
-  - http/ # All HTTP templates for maximum coverage
-vulnerability_tags: [] # Empty = no tag filtering, scan everything
-concurrency: 50
-# Workflow timeout - use duration format (e.g., "60m", "2h")
-# This is the maximum time a workflow can run before timing out
-timeout: 90m
-output_dir: out
+# ------------------------------------------------------------
 # Subfinder configuration
 subfinder:
   # Use all available sources for enumeration (slower but more comprehensive)
@@ -28,3 +21,62 @@ httpx:
   # This prevents 404 pages from being passed to vulnerability scanner, saving time
   # Set to empty string "" to include all status codes
   filter_status_codes: '404'
+
+# ------------------------------------------------------------
+# Nuclei vulnerability scanning configuration
+#
+# Templates: Specify which Nuclei template directories to use
+# Examples:
+#   - http/                          # All HTTP templates (SLOWEST, most comprehensive)
+#   - http/cves/                     # Only CVE-specific templates (faster)
+#   - http/misconfiguration/         # Misconfiguration templates
+#   - http/exposed-panels/           # Exposed admin panels, dashboards
+#   - http/vulnerabilities/          # General vulnerabilities
+#   - http/technologies/             # Technology-specific (e.g., WordPress, Jira)
+#   - http/default-logins/           # Default credentials
+#   - http/takeovers/                # Subdomain takeovers
+#   - http/exposures/                # Information exposures
+#   - http/cves/2024/                # Specific year CVEs (FASTEST for targeted scans)
+#   - http/cves/2024/CVE-2024-1234*  # Specific CVE pattern
+#
+# To speed up scans, use specific directories instead of broad ones:
+#   FAST: http/cves/2024/, http/exposed-panels/
+#   MEDIUM: http/cves/, http/misconfiguration/, http/exposures/
+#   SLOW: http/ (scans everything)
+vulnerability_templates:
+  - http/cves/, http/misconfiguration/, http/exposures/
+
+# Tags: Filter templates by vulnerability tags (comma-separated in Nuclei)
+# Examples:
+#   - cve          # CVE-related vulnerabilities
+#   - exposure     # Information exposure
+#   - rce          # Remote code execution
+#   - xss          # Cross-site scripting
+#   - sqli         # SQL injection
+#   - lfi          # Local file inclusion
+#   - rfi          # Remote file inclusion
+#   - ssrf         # Server-side request forgery
+#   - auth         # Authentication issues
+#   - config       # Configuration issues
+#   - file         # File-related vulnerabilities
+#   - iot          # IoT device vulnerabilities
+#   - network      # Network-related issues
+#   - panel        # Admin panels
+#   - takeover     # Subdomain takeovers
+#   - tech         # Technology-specific
+#   - wordpress    # WordPress-specific
+#   - apache       # Apache-specific
+#   - nginx        # Nginx-specific
+#
+# To speed up scans, use specific tags:
+#   FAST: [cve,exposure] - focuses on high-impact findings
+#   MEDIUM: [cve,exposure,rce,sqli] - common critical issues
+#   SLOW: [] - no filtering (scans all templates matching the template paths above)
+#
+# Note: Tags work in combination with templates - both filters apply
+vulnerability_tags: [cve, exposure, rce, sqli]
+concurrency: 50
+# Workflow timeout - use duration format (e.g., "60m", "2h")
+# This is the maximum time a workflow can run before timing out
+timeout: 90m
+output_dir: out
