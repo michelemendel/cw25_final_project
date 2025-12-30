@@ -22,11 +22,11 @@ flowchart TD
     ParseScope --> scope[scope.json]
 
     scope --> DiscoverSubdomains[DiscoverSubdomains Activity]
-    DiscoverSubdomains --> subfinder[subdomains_subfinder.jsonl<br/>Passive enumeration]
-    DiscoverSubdomains --> bruteforce{Brute-force<br/>enabled?}
-    bruteforce -->|Yes| puredns[subdomains_bruteforce.jsonl<br/>Active enumeration]
+    DiscoverSubdomains --> subfinder[subdomains_subfinder.jsonl - Passive]
+    DiscoverSubdomains --> bruteforce{Brute-force enabled?}
+    bruteforce -->|Yes| puredns[subdomains_bruteforce.jsonl - Active]
     bruteforce -->|No| merge
-    subfinder --> merge[Merge & Deduplicate]
+    subfinder --> merge[Merge and Deduplicate]
     puredns --> merge
     merge --> subdomains[subdomains.jsonl]
 
@@ -45,20 +45,15 @@ flowchart TD
     report --> End([End])
     summary --> End
 
-    style ParseScope fill:#e1f5ff
-    style DiscoverSubdomains fill:#e1f5ff
-    style IdentifyLiveHosts fill:#e1f5ff
-    style ScanVulnerabilities fill:#e1f5ff
-    style GenerateReport fill:#e1f5ff
-    style scope fill:#fff4e1
-    style subfinder fill:#fff4e1
-    style bruteforce fill:#ffe1f5
-    style puredns fill:#fff4e1
-    style subdomains fill:#fff4e1
-    style live fill:#fff4e1
-    style vulns fill:#fff4e1
-    style report fill:#e1ffe1
-    style summary fill:#e1ffe1
+    classDef activity fill:#e1f5ff,stroke:#333,stroke-width:2px
+    classDef file fill:#fff4e1,stroke:#333,stroke-width:2px
+    classDef decision fill:#ffe1f5,stroke:#333,stroke-width:2px
+    classDef report fill:#e1ffe1,stroke:#333,stroke-width:2px
+
+    class ParseScope,DiscoverSubdomains,IdentifyLiveHosts,ScanVulnerabilities,GenerateReport activity
+    class scope,subfinder,puredns,subdomains,live,vulns file
+    class bruteforce decision
+    class report,summary report
 ```
 
 **Legend:**
