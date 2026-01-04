@@ -7,6 +7,9 @@ out/
 # Various out directories
 out_*/
 
+# Local Domain files
+domains_local.txt
+
 # Go build artifacts
 *.exe
 *.exe~
@@ -14,15 +17,11 @@ out_*/
 *.so
 *.dylib
 
-# Test binary, built with `go test -c`
-*.test
-
 # Output of the go coverage tool
 *.out
 
 # Go workspace file
 go.work
-
 
 # Wordlists
 wordlists/

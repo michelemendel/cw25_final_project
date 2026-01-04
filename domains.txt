@@ -1,48 +1,21 @@
-# Production sites (typically have fewer vulnerabilities)
-
-aftenposten.no
-aftonbladet.se
-dagbladet.no
-dn.se
-google.com
-itera.com
-portswigger.net
-shortcut.io
-vg.no
-israel.bularmory.com
-smart-bell.net
-myzmanim.com
-btl.gov.il
-nbn.org.il
-mosaiske.dk
-dmt.oslo.no
-jfst.se
-aliyapp.org
-olim.tech
-builtin.com
-mycar-israel.com
-citycar.co.il
-osherad.co.il
-watchseries.mn/home
-
 
 # Sites with vulnerabilities (for testing/demonstration)
 
-#demo.testfire.net
-#ginandjuice.shop
-#google-gruyere.appspot.com/606449110093000614466175116457519865578
-#itsecgames.com
-#pentest-ground.com:81
-#pentest-ground.com:5013
-#pentest-ground.com:4280
-#xss-game.appspot.com/level1/frame
-#testasp.vulnweb.com
-#testphp.vulnweb.com
-#vulnweb.com
-#zero.webappsecurity.com
+demo.testfire.net
+ginandjuice.shop
+google-gruyere.appspot.com/606449110093000614466175116457519865578
+itsecgames.com
+pentest-ground.com:81
+pentest-ground.com:5013
+pentest-ground.com:4280
+xss-game.appspot.com/level1/frame
+testasp.vulnweb.com
+testphp.vulnweb.com
+vulnweb.com
+zero.webappsecurity.com
 
 
 # Sites with no vulnerabilities (for testing/demonstration)
 
-#juice-shop.herokuapp.com
-#pentest-ground.com:7001/console/login/LoginForm.jsp
+juice-shop.herokuapp.com
+pentest-ground.com:7001/console/login/LoginForm.jsp
