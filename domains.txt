@@ -1,5 +1,5 @@
 
-# Sites with vulnerabilities (for testing/demonstration)
+# Testing/demonstration sites
 
 demo.testfire.net
 ginandjuice.shop
@@ -13,9 +13,5 @@ testasp.vulnweb.com
 testphp.vulnweb.com
 vulnweb.com
 zero.webappsecurity.com
-
-
-# Sites with no vulnerabilities (for testing/demonstration)
-
 juice-shop.herokuapp.com
 pentest-ground.com:7001/console/login/LoginForm.jsp

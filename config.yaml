@@ -11,7 +11,7 @@ subfinder:
   # Puredns configuration:
   # Brute-force enumeration: try common subdomain names from a wordlist
   # This is slower but can find subdomains that passive enumeration misses
-  brute_force: false # Set to true to enable brute-force
+  brute_force: true # Set to true to enable brute-force
   wordlist: wordlists/subdomains-top1million-5000.txt # Path to wordlist file
   brute_force_threads: 100 # Number of concurrent DNS queries for brute-force
   resolvers_file: '' # Path to DNS resolvers file (optional, defaults to ~/.config/puredns/resolvers.txt, will be auto-generated if missing)
@@ -78,22 +78,11 @@ vulnerability_templates:
 vulnerability_tags: []
 # vulnerability_tags: [cve, exposure, rce, sqli]
 
-# Concurrency: Number of parallel nuclei processes to run during vulnerability scanning
-# The vulnerability scanner splits all live hosts into batches and runs multiple nuclei
-# processes in parallel to speed up scanning. Each process scans a subset of the URLs.
-#
-# How it works:
-#   - URLs are divided into N batches (where N = concurrency value)
-#   - Each batch runs in a separate nuclei process simultaneously
-#   - Results from all batches are merged into the final output file
-#
-# Recommendations:
-#   - LOW (10-20): For slower systems or when scanning many targets to avoid overwhelming the system
-#   - MEDIUM (30-50): Good balance for most systems (default: 50)
-#   - HIGH (50-100+): For powerful systems with many CPU cores and sufficient memory
-#
-# Note: Higher concurrency = faster scans but more CPU/memory usage. If you experience
-# system slowdowns or out-of-memory errors, reduce this value.
+# Concurrency: (Currently unused - kept for backward compatibility)
+# Nuclei handles parallelization internally, so we no longer split URLs into batches.
+# This setting is kept for backward compatibility but has no effect on scanning.
+# If you need to control nuclei's parallelization, you can modify nuclei command flags
+# in the code (e.g., -c for template concurrency, -bs for bulk size, -rl for rate limit).
 concurrency: 80
 
 # Workflow timeout - use duration format (e.g., "60m", "2h")
