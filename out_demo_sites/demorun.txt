@@ -1,0 +1,405 @@
+make run
+./bin/recon-pipeline
+2026/01/04 10:20:09 Cleaning output directory: out
+2026/01/04 10:20:09 Output directory cleaned and ready for new results.
+2026/01/04 10:20:09 === Tool Validation ===
+2026/01/04 10:20:09 ----- Checking tool: subfinder, path: /opt/homebrew/bin/subfinder
+2026/01/04 10:20:09 ✅ subfinder: REAL TOOL (path: /opt/homebrew/bin/subfinder)
+2026/01/04 10:20:09 ----- Checking tool: httpx, path: /opt/homebrew/bin/httpx
+2026/01/04 10:20:09 ✅ httpx: REAL TOOL (path: /opt/homebrew/bin/httpx)
+2026/01/04 10:20:09 ----- Checking tool: nuclei, path: /opt/homebrew/bin/nuclei
+2026/01/04 10:20:09 ✅ nuclei: REAL TOOL (path: /opt/homebrew/bin/nuclei)
+2026/01/04 10:20:09 --- Brute-force tools (required when brute_force is enabled) ---
+2026/01/04 10:20:09 ----- Checking tool: puredns, path: /Users/michelemendel/go/bin/puredns
+2026/01/04 10:20:09 ✅ puredns: REAL TOOL (path: /Users/michelemendel/go/bin/puredns)
+2026/01/04 10:20:09 ----- Checking tool: massdns, path: /opt/homebrew/bin/massdns
+2026/01/04 10:20:09 ✅ massdns: REAL TOOL (path: /opt/homebrew/bin/massdns)
+2026/01/04 10:20:09 =======================
+2026/01/04 10:20:09 All tools validated - using REAL tools for reconnaissance.
+2026/01/04 10:20:09 
+2026/01/04 10:20:09 INFO Applying migrations...
+2026/01/04 10:20:09 demo.testfire.net: Starting workflow
+2026/01/04 10:20:09 ginandjuice.shop: Starting workflow
+2026/01/04 10:20:09 google-gruyere.appspot.com/606449110093000614466175116457519865578: Starting workflow
+2026/01/04 10:20:09 itsecgames.com: Starting workflow
+2026/01/04 10:20:09 pentest-ground.com:81: Starting workflow
+2026/01/04 10:20:09 pentest-ground.com:5013: Starting workflow
+2026/01/04 10:20:09 pentest-ground.com:4280: Starting workflow
+2026/01/04 10:20:09 xss-game.appspot.com/level1/frame: Starting workflow
+2026/01/04 10:20:09 testasp.vulnweb.com: Starting workflow
+2026/01/04 10:20:09 testphp.vulnweb.com: Starting workflow
+2026/01/04 10:20:09 vulnweb.com: Starting workflow
+2026/01/04 10:20:09 zero.webappsecurity.com: Starting workflow
+2026/01/04 10:20:09 juice-shop.herokuapp.com: Starting workflow
+2026/01/04 10:20:09 pentest-ground.com:7001/console/login/LoginForm.jsp: Starting workflow
+2026/01/04 10:20:09 Workflow timeout set to: 1h30m0s
+2026/01/04 10:20:09 demo.testfire.net: ParseScope: Starting...
+2026/01/04 10:20:09 demo.testfire.net: ParseScope: Completed
+2026/01/04 10:20:09 itsecgames.com: ParseScope: Starting...
+2026/01/04 10:20:09 itsecgames.com: ParseScope: Completed
+2026/01/04 10:20:09 ginandjuice.shop: ParseScope: Starting...
+2026/01/04 10:20:09 ginandjuice.shop: ParseScope: Completed
+2026/01/04 10:20:09 pentest-ground.com:81: ParseScope: Starting...
+2026/01/04 10:20:09 pentest-ground.com:5013: ParseScope: Starting...
+2026/01/04 10:20:09 pentest-ground.com:81: ParseScope: Completed
+2026/01/04 10:20:09 google-gruyere.appspot.com/606449110093000614466175116457519865578: ParseScope: Starting...
+2026/01/04 10:20:09 pentest-ground.com:5013: ParseScope: Completed
+2026/01/04 10:20:09 xss-game.appspot.com/level1/frame: ParseScope: Starting...
+2026/01/04 10:20:09 google-gruyere.appspot.com/606449110093000614466175116457519865578: ParseScope: Completed
+2026/01/04 10:20:09 testasp.vulnweb.com: ParseScope: Starting...
+2026/01/04 10:20:09 xss-game.appspot.com/level1/frame: ParseScope: Completed
+2026/01/04 10:20:09 testasp.vulnweb.com: ParseScope: Completed
+2026/01/04 10:20:09 pentest-ground.com:4280: ParseScope: Starting...
+2026/01/04 10:20:09 pentest-ground.com:4280: ParseScope: Completed
+2026/01/04 10:20:09 testphp.vulnweb.com: ParseScope: Starting...
+2026/01/04 10:20:09 vulnweb.com: ParseScope: Starting...
+2026/01/04 10:20:09 testphp.vulnweb.com: ParseScope: Completed
+2026/01/04 10:20:09 vulnweb.com: ParseScope: Completed
+2026/01/04 10:20:09 zero.webappsecurity.com: ParseScope: Starting...
+2026/01/04 10:20:09 zero.webappsecurity.com: ParseScope: Completed
+2026/01/04 10:20:09 juice-shop.herokuapp.com: ParseScope: Starting...
+2026/01/04 10:20:09 demo.testfire.net: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 juice-shop.herokuapp.com: ParseScope: Completed
+2026/01/04 10:20:09 pentest-ground.com:7001/console/login/LoginForm.jsp: ParseScope: Starting...
+2026/01/04 10:20:09 itsecgames.com: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 pentest-ground.com:7001/console/login/LoginForm.jsp: ParseScope: Completed
+2026/01/04 10:20:09 ginandjuice.shop: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 pentest-ground.com:5013: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 xss-game.appspot.com/level1/frame: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 google-gruyere.appspot.com/606449110093000614466175116457519865578: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 pentest-ground.com:4280: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 pentest-ground.com:81: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 testphp.vulnweb.com: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 vulnweb.com: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 testasp.vulnweb.com: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 zero.webappsecurity.com: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 juice-shop.herokuapp.com: DiscoverSubdomains: Starting...
+2026/01/04 10:20:09 pentest-ground.com:7001/console/login/LoginForm.jsp: DiscoverSubdomains: Starting...
+2026/01/04 10:20:19 ⏳ Progress: 14 running, 0 of 14 completed | Elapsed: 10s
+2026/01/04 10:20:19 pentest-ground.com:4280: Subfinder found 0 subdomains
+2026/01/04 10:20:22 google-gruyere.appspot.com/606449110093000614466175116457519865578: Subfinder found 0 subdomains
+2026/01/04 10:20:22 pentest-ground.com:81: Subfinder found 0 subdomains
+2026/01/04 10:20:23 pentest-ground.com:7001/console/login/LoginForm.jsp: Subfinder found 0 subdomains
+2026/01/04 10:20:29 ⏳ Progress: 14 running, 0 of 14 completed | Elapsed: 20s
+2026/01/04 10:20:29 juice-shop.herokuapp.com: Subfinder found 0 subdomains
+2026/01/04 10:20:30 pentest-ground.com:5013: Subfinder found 0 subdomains
+2026/01/04 10:20:32 testasp.vulnweb.com: Subfinder found 0 subdomains
+2026/01/04 10:20:33 zero.webappsecurity.com: Subfinder found 0 subdomains
+2026/01/04 10:20:35 ginandjuice.shop: Subfinder found 0 subdomains
+2026/01/04 10:20:35 itsecgames.com: Subfinder found 0 subdomains
+2026/01/04 10:20:39 ⏳ Progress: 14 running, 0 of 14 completed | Elapsed: 30s
+2026/01/04 10:20:40 demo.testfire.net: Subfinder found 0 subdomains
+2026/01/04 10:20:42 xss-game.appspot.com/level1/frame: Subfinder found 0 subdomains
+2026/01/04 10:20:45 pentest-ground.com:4280: Brute-force found 0 subdomains
+2026/01/04 10:20:45 pentest-ground.com:4280: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:45 pentest-ground.com:4280: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:45 pentest-ground.com:4280: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:45 pentest-ground.com:4280: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:47 google-gruyere.appspot.com/606449110093000614466175116457519865578: Brute-force found 0 subdomains
+2026/01/04 10:20:47 google-gruyere.appspot.com/606449110093000614466175116457519865578: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:48 google-gruyere.appspot.com/606449110093000614466175116457519865578: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:48 google-gruyere.appspot.com/606449110093000614466175116457519865578: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:48 google-gruyere.appspot.com/606449110093000614466175116457519865578: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:48 pentest-ground.com:81: Brute-force found 0 subdomains
+2026/01/04 10:20:48 pentest-ground.com:81: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:48 pentest-ground.com:81: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:48 pentest-ground.com:81: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:48 pentest-ground.com:81: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:48 pentest-ground.com:7001/console/login/LoginForm.jsp: Brute-force found 0 subdomains
+2026/01/04 10:20:48 pentest-ground.com:7001/console/login/LoginForm.jsp: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:49 pentest-ground.com:7001/console/login/LoginForm.jsp: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:49 pentest-ground.com:7001/console/login/LoginForm.jsp: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:49 pentest-ground.com:7001/console/login/LoginForm.jsp: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:49 ⏳ Progress: 14 running, 0 of 14 completed | Elapsed: 40s
+2026/01/04 10:20:52 pentest-ground.com:81: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:20:53 pentest-ground.com:81: ScanVulnerabilities: Starting...
+2026/01/04 10:20:53 pentest-ground.com:81: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:20:53 google-gruyere.appspot.com/606449110093000614466175116457519865578: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:20:53 google-gruyere.appspot.com/606449110093000614466175116457519865578: ScanVulnerabilities: Starting...
+2026/01/04 10:20:53 google-gruyere.appspot.com/606449110093000614466175116457519865578: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:20:54 pentest-ground.com:4280: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:20:54 pentest-ground.com:4280: ScanVulnerabilities: Starting...
+2026/01/04 10:20:54 pentest-ground.com:4280: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:20:55 juice-shop.herokuapp.com: Brute-force found 0 subdomains
+2026/01/04 10:20:55 juice-shop.herokuapp.com: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:55 vulnweb.com: Subfinder found 0 subdomains
+2026/01/04 10:20:55 juice-shop.herokuapp.com: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:55 juice-shop.herokuapp.com: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:55 juice-shop.herokuapp.com: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:55 pentest-ground.com:7001/console/login/LoginForm.jsp: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:20:55 pentest-ground.com:7001/console/login/LoginForm.jsp: ScanVulnerabilities: Starting...
+2026/01/04 10:20:55 pentest-ground.com:7001/console/login/LoginForm.jsp: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:20:56 pentest-ground.com:5013: Brute-force found 0 subdomains
+2026/01/04 10:20:56 pentest-ground.com:5013: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:56 pentest-ground.com:5013: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:56 pentest-ground.com:5013: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:56 pentest-ground.com:5013: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:57 pentest-ground.com:5013: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:20:57 juice-shop.herokuapp.com: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:20:58 pentest-ground.com:5013: ScanVulnerabilities: Starting...
+2026/01/04 10:20:58 pentest-ground.com:5013: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:20:58 juice-shop.herokuapp.com: ScanVulnerabilities: Starting...
+2026/01/04 10:20:58 juice-shop.herokuapp.com: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:20:58 testasp.vulnweb.com: Brute-force found 0 subdomains
+2026/01/04 10:20:58 testasp.vulnweb.com: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:58 testasp.vulnweb.com: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:58 testasp.vulnweb.com: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:58 testasp.vulnweb.com: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:20:59 ⏳ Progress: 14 running, 0 of 14 completed | Elapsed: 50s
+2026/01/04 10:20:59 zero.webappsecurity.com: Brute-force found 0 subdomains
+2026/01/04 10:20:59 zero.webappsecurity.com: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:20:59 zero.webappsecurity.com: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:20:59 zero.webappsecurity.com: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:20:59 zero.webappsecurity.com: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:21:01 zero.webappsecurity.com: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:21:01 zero.webappsecurity.com: ScanVulnerabilities: Starting...
+2026/01/04 10:21:01 zero.webappsecurity.com: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:21:01 ginandjuice.shop: Brute-force found 1 subdomains
+2026/01/04 10:21:01 ginandjuice.shop: DiscoverSubdomains: Completed - found 1 unique subdomains
+2026/01/04 10:21:01 ginandjuice.shop: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:21:01 ginandjuice.shop: IdentifyLiveHosts: Found 2 domains (including root domain)
+2026/01/04 10:21:01 ginandjuice.shop: IdentifyLiveHosts: Starting scan (2 domains)...
+2026/01/04 10:21:04 ginandjuice.shop: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:21:04 ginandjuice.shop: ScanVulnerabilities: Starting...
+2026/01/04 10:21:04 ginandjuice.shop: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:21:05 itsecgames.com: Brute-force found 6 subdomains
+2026/01/04 10:21:05 itsecgames.com: DiscoverSubdomains: Completed - found 6 unique subdomains
+2026/01/04 10:21:05 itsecgames.com: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:21:05 itsecgames.com: IdentifyLiveHosts: Found 7 domains (including root domain)
+2026/01/04 10:21:05 itsecgames.com: IdentifyLiveHosts: Starting scan (7 domains)...
+2026/01/04 10:21:06 demo.testfire.net: Brute-force found 0 subdomains
+2026/01/04 10:21:06 demo.testfire.net: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:21:06 demo.testfire.net: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:21:06 demo.testfire.net: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:21:06 demo.testfire.net: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:21:07 testphp.vulnweb.com: Subfinder found 0 subdomains
+2026/01/04 10:21:08 demo.testfire.net: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:21:08 demo.testfire.net: ScanVulnerabilities: Starting...
+2026/01/04 10:21:08 demo.testfire.net: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:21:08 xss-game.appspot.com/level1/frame: Brute-force found 0 subdomains
+2026/01/04 10:21:08 xss-game.appspot.com/level1/frame: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:21:08 xss-game.appspot.com/level1/frame: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:21:08 xss-game.appspot.com/level1/frame: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:21:08 xss-game.appspot.com/level1/frame: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:21:09 ⏳ Progress: 14 running, 0 of 14 completed | Elapsed: 1m0s
+2026/01/04 10:21:09 xss-game.appspot.com/level1/frame: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:21:10 xss-game.appspot.com/level1/frame: ScanVulnerabilities: Starting...
+2026/01/04 10:21:10 xss-game.appspot.com/level1/frame: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:21:10 testasp.vulnweb.com: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:21:10 testasp.vulnweb.com: ScanVulnerabilities: Starting...
+2026/01/04 10:21:10 testasp.vulnweb.com: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:21:11 google-gruyere.appspot.com/606449110093000614466175116457519865578: ScanVulnerabilities: Completed - found 0 vulnerabilities
+2026/01/04 10:21:11 google-gruyere.appspot.com/606449110093000614466175116457519865578: GenerateReport: Starting...
+2026/01/04 10:21:11 google-gruyere.appspot.com/606449110093000614466175116457519865578: GenerateReport: Completed - 0 subdomains, 1 live hosts, 0 findings
+2026/01/04 10:21:13 ✅ google-gruyere.appspot.com/606449110093000614466175116457519865578: Workflow recon completed in 1m4s
+2026/01/04 10:21:19 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 1m10s
+2026/01/04 10:21:21 vulnweb.com: Brute-force found 3 subdomains
+2026/01/04 10:21:21 vulnweb.com: DiscoverSubdomains: Completed - found 3 unique subdomains
+2026/01/04 10:21:21 vulnweb.com: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:21:21 vulnweb.com: IdentifyLiveHosts: Found 4 domains (including root domain)
+2026/01/04 10:21:21 vulnweb.com: IdentifyLiveHosts: Starting scan (4 domains)...
+2026/01/04 10:21:26 itsecgames.com: IdentifyLiveHosts: Completed - found 3 live hosts
+2026/01/04 10:21:26 itsecgames.com: ScanVulnerabilities: Starting...
+2026/01/04 10:21:26 itsecgames.com: ScanVulnerabilities: Found 3 live hosts to scan
+2026/01/04 10:21:29 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 1m20s
+2026/01/04 10:21:33 testphp.vulnweb.com: Brute-force found 0 subdomains
+2026/01/04 10:21:33 testphp.vulnweb.com: DiscoverSubdomains: Completed - found 0 unique subdomains
+2026/01/04 10:21:33 vulnweb.com: IdentifyLiveHosts: Completed - found 3 live hosts
+2026/01/04 10:21:33 testphp.vulnweb.com: IdentifyLiveHosts: Added root domain to scan list
+2026/01/04 10:21:33 testphp.vulnweb.com: IdentifyLiveHosts: Found 1 domains (including root domain)
+2026/01/04 10:21:33 testphp.vulnweb.com: IdentifyLiveHosts: Starting scan (1 domains)...
+2026/01/04 10:21:33 vulnweb.com: ScanVulnerabilities: Starting...
+2026/01/04 10:21:33 vulnweb.com: ScanVulnerabilities: Found 3 live hosts to scan
+2026/01/04 10:21:39 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 1m30s
+2026/01/04 10:21:44 testphp.vulnweb.com: IdentifyLiveHosts: Completed - found 1 live hosts
+2026/01/04 10:21:45 testphp.vulnweb.com: ScanVulnerabilities: Starting...
+2026/01/04 10:21:45 testphp.vulnweb.com: ScanVulnerabilities: Found 1 live hosts to scan
+2026/01/04 10:21:49 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 1m40s
+2026/01/04 10:21:59 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 1m50s
+2026/01/04 10:22:09 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 2m0s
+2026/01/04 10:22:19 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 2m10s
+2026/01/04 10:22:29 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 2m20s
+2026/01/04 10:22:39 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 2m30s
+2026/01/04 10:22:49 ⏳ Progress: 13 running, 1 of 14 completed | Elapsed: 2m40s
+2026/01/04 10:22:50 pentest-ground.com:4280: ScanVulnerabilities: Completed - found 1 vulnerabilities
+2026/01/04 10:22:51 pentest-ground.com:4280: GenerateReport: Starting...
+2026/01/04 10:22:51 pentest-ground.com:4280: GenerateReport: Completed - 0 subdomains, 1 live hosts, 1 findings
+2026/01/04 10:22:51 ✅ pentest-ground.com:4280: Workflow recon completed in 2m43s
+2026/01/04 10:22:59 ⏳ Progress: 12 running, 2 of 14 completed | Elapsed: 2m50s
+2026/01/04 10:23:09 ⏳ Progress: 12 running, 2 of 14 completed | Elapsed: 3m0s
+2026/01/04 10:23:19 ⏳ Progress: 12 running, 2 of 14 completed | Elapsed: 3m10s
+2026/01/04 10:23:29 ⏳ Progress: 12 running, 2 of 14 completed | Elapsed: 3m20s
+2026/01/04 10:23:39 ⏳ Progress: 12 running, 2 of 14 completed | Elapsed: 3m30s
+2026/01/04 10:23:46 pentest-ground.com:5013: ScanVulnerabilities: Completed - found 19 vulnerabilities
+2026/01/04 10:23:46 pentest-ground.com:5013: GenerateReport: Starting...
+2026/01/04 10:23:46 pentest-ground.com:5013: GenerateReport: Completed - 0 subdomains, 1 live hosts, 19 findings
+2026/01/04 10:23:47 ✅ pentest-ground.com:5013: Workflow recon completed in 3m38s
+2026/01/04 10:23:49 ⏳ Progress: 11 running, 3 of 14 completed | Elapsed: 3m40s
+2026/01/04 10:23:59 ⏳ Progress: 11 running, 3 of 14 completed | Elapsed: 3m50s
+2026/01/04 10:24:02 pentest-ground.com:81: ScanVulnerabilities: Completed - found 8 vulnerabilities
+2026/01/04 10:24:02 pentest-ground.com:81: GenerateReport: Starting...
+2026/01/04 10:24:02 pentest-ground.com:81: GenerateReport: Completed - 0 subdomains, 1 live hosts, 8 findings
+2026/01/04 10:24:03 ✅ pentest-ground.com:81: Workflow recon completed in 3m54s
+2026/01/04 10:24:09 ⏳ Progress: 10 running, 4 of 14 completed | Elapsed: 4m0s
+2026/01/04 10:24:15 xss-game.appspot.com/level1/frame: ScanVulnerabilities: Completed - found 16 vulnerabilities
+2026/01/04 10:24:15 xss-game.appspot.com/level1/frame: GenerateReport: Starting...
+2026/01/04 10:24:15 xss-game.appspot.com/level1/frame: GenerateReport: Completed - 0 subdomains, 1 live hosts, 16 findings
+2026/01/04 10:24:16 ✅ xss-game.appspot.com/level1/frame: Workflow recon completed in 4m7s
+2026/01/04 10:24:16 ginandjuice.shop: ScanVulnerabilities: Completed - found 21 vulnerabilities
+2026/01/04 10:24:16 ginandjuice.shop: GenerateReport: Starting...
+2026/01/04 10:24:16 ginandjuice.shop: GenerateReport: Completed - 1 subdomains, 1 live hosts, 21 findings
+2026/01/04 10:24:17 ✅ ginandjuice.shop: Workflow recon completed in 4m9s
+2026/01/04 10:24:19 ⏳ Progress: 8 running, 6 of 14 completed | Elapsed: 4m10s
+2026/01/04 10:24:29 ⏳ Progress: 8 running, 6 of 14 completed | Elapsed: 4m20s
+2026/01/04 10:24:39 ⏳ Progress: 8 running, 6 of 14 completed | Elapsed: 4m30s
+2026/01/04 10:24:41 pentest-ground.com:7001/console/login/LoginForm.jsp: ScanVulnerabilities: Completed - found 19 vulnerabilities
+2026/01/04 10:24:41 pentest-ground.com:7001/console/login/LoginForm.jsp: GenerateReport: Starting...
+2026/01/04 10:24:41 pentest-ground.com:7001/console/login/LoginForm.jsp: GenerateReport: Completed - 0 subdomains, 1 live hosts, 19 findings
+2026/01/04 10:24:42 ✅ pentest-ground.com:7001/console/login/LoginForm.jsp: Workflow recon completed in 4m33s
+2026/01/04 10:24:49 ⏳ Progress: 7 running, 7 of 14 completed | Elapsed: 4m40s
+2026/01/04 10:24:59 ⏳ Progress: 7 running, 7 of 14 completed | Elapsed: 4m50s
+2026/01/04 10:25:09 ⏳ Progress: 7 running, 7 of 14 completed | Elapsed: 5m0s
+2026/01/04 10:25:10 testasp.vulnweb.com: ScanVulnerabilities: Completed - found 25 vulnerabilities
+2026/01/04 10:25:10 testasp.vulnweb.com: GenerateReport: Starting...
+2026/01/04 10:25:10 testasp.vulnweb.com: GenerateReport: Completed - 0 subdomains, 1 live hosts, 25 findings
+2026/01/04 10:25:12 ✅ testasp.vulnweb.com: Workflow recon completed in 5m3s
+2026/01/04 10:25:14 itsecgames.com: ScanVulnerabilities: Completed - found 4 vulnerabilities
+2026/01/04 10:25:15 itsecgames.com: GenerateReport: Starting...
+2026/01/04 10:25:15 itsecgames.com: GenerateReport: Completed - 6 subdomains, 3 live hosts, 4 findings
+2026/01/04 10:25:15 ✅ itsecgames.com: Workflow recon completed in 5m6s
+2026/01/04 10:25:19 ⏳ Progress: 5 running, 9 of 14 completed | Elapsed: 5m10s
+2026/01/04 10:25:29 ⏳ Progress: 5 running, 9 of 14 completed | Elapsed: 5m20s
+2026/01/04 10:25:39 ⏳ Progress: 5 running, 9 of 14 completed | Elapsed: 5m30s
+2026/01/04 10:25:44 testphp.vulnweb.com: ScanVulnerabilities: Completed - found 21 vulnerabilities
+2026/01/04 10:25:44 testphp.vulnweb.com: GenerateReport: Starting...
+2026/01/04 10:25:44 testphp.vulnweb.com: GenerateReport: Completed - 0 subdomains, 1 live hosts, 21 findings
+2026/01/04 10:25:45 ✅ testphp.vulnweb.com: Workflow recon completed in 5m36s
+2026/01/04 10:25:49 ⏳ Progress: 4 running, 10 of 14 completed | Elapsed: 5m40s
+2026/01/04 10:25:59 ⏳ Progress: 4 running, 10 of 14 completed | Elapsed: 5m50s
+2026/01/04 10:26:09 ⏳ Progress: 4 running, 10 of 14 completed | Elapsed: 6m0s
+2026/01/04 10:26:09 zero.webappsecurity.com: ScanVulnerabilities: Completed - found 18 vulnerabilities
+2026/01/04 10:26:09 zero.webappsecurity.com: GenerateReport: Starting...
+2026/01/04 10:26:09 zero.webappsecurity.com: GenerateReport: Completed - 0 subdomains, 1 live hosts, 18 findings
+2026/01/04 10:26:10 ✅ zero.webappsecurity.com: Workflow recon completed in 6m1s
+2026/01/04 10:26:19 ⏳ Progress: 3 running, 11 of 14 completed | Elapsed: 6m10s
+2026/01/04 10:26:29 ⏳ Progress: 3 running, 11 of 14 completed | Elapsed: 6m20s
+2026/01/04 10:26:39 ⏳ Progress: 3 running, 11 of 14 completed | Elapsed: 6m30s
+2026/01/04 10:26:49 ⏳ Progress: 3 running, 11 of 14 completed | Elapsed: 6m40s
+2026/01/04 10:26:59 ⏳ Progress: 3 running, 11 of 14 completed | Elapsed: 6m50s
+2026/01/04 10:27:01 demo.testfire.net: ScanVulnerabilities: Completed - found 16 vulnerabilities
+2026/01/04 10:27:01 demo.testfire.net: GenerateReport: Starting...
+2026/01/04 10:27:01 demo.testfire.net: GenerateReport: Completed - 0 subdomains, 1 live hosts, 16 findings
+2026/01/04 10:27:01 ✅ demo.testfire.net: Workflow recon completed in 6m52s
+2026/01/04 10:27:09 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 7m0s
+2026/01/04 10:27:19 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 7m10s
+2026/01/04 10:27:29 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 7m20s
+2026/01/04 10:27:39 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 7m30s
+2026/01/04 10:27:49 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 7m40s
+2026/01/04 10:27:59 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 7m50s
+2026/01/04 10:28:09 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 8m0s
+2026/01/04 10:28:19 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 8m10s
+2026/01/04 10:28:29 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 8m20s
+2026/01/04 10:28:39 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 8m30s
+2026/01/04 10:28:49 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 8m40s
+2026/01/04 10:28:59 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 8m50s
+2026/01/04 10:29:09 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 9m0s
+2026/01/04 10:29:19 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 9m10s
+2026/01/04 10:29:29 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 9m20s
+2026/01/04 10:29:39 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 9m30s
+2026/01/04 10:29:49 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 9m40s
+2026/01/04 10:29:59 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 9m50s
+2026/01/04 10:30:09 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 10m0s
+2026/01/04 10:30:19 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 10m10s
+2026/01/04 10:30:29 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 10m20s
+2026/01/04 10:30:39 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 10m30s
+2026/01/04 10:30:49 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 10m40s
+2026/01/04 10:30:59 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 10m50s
+2026/01/04 10:31:09 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 11m0s
+2026/01/04 10:31:19 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 11m10s
+2026/01/04 10:31:29 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 11m20s
+2026/01/04 10:31:39 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 11m30s
+2026/01/04 10:31:49 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 11m40s
+2026/01/04 10:31:59 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 11m50s
+2026/01/04 10:32:09 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 12m0s
+2026/01/04 10:32:18 vulnweb.com: ScanVulnerabilities: Completed
+2026/01/04 10:32:18 vulnweb.com: GenerateReport: Starting...
+2026/01/04 10:32:18 vulnweb.com: GenerateReport: Completed - 3 subdomains, 3 live hosts, 2 findings
+2026/01/04 10:32:19 ⏳ Progress: 2 running, 12 of 14 completed | Elapsed: 12m10s
+2026/01/04 10:32:20 ✅ vulnweb.com: Workflow recon completed in 12m11s
+2026/01/04 10:32:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 12m20s
+2026/01/04 10:32:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 12m30s
+2026/01/04 10:32:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 12m40s
+2026/01/04 10:32:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 12m50s
+2026/01/04 10:33:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 13m0s
+2026/01/04 10:33:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 13m10s
+2026/01/04 10:33:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 13m20s
+2026/01/04 10:33:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 13m30s
+2026/01/04 10:33:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 13m40s
+2026/01/04 10:33:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 13m50s
+2026/01/04 10:34:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 14m0s
+2026/01/04 10:34:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 14m10s
+2026/01/04 10:34:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 14m20s
+2026/01/04 10:34:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 14m30s
+2026/01/04 10:34:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 14m40s
+2026/01/04 10:34:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 14m50s
+2026/01/04 10:35:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 15m0s
+2026/01/04 10:35:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 15m10s
+2026/01/04 10:35:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 15m20s
+2026/01/04 10:35:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 15m30s
+2026/01/04 10:35:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 15m40s
+2026/01/04 10:35:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 15m50s
+2026/01/04 10:36:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 16m0s
+2026/01/04 10:36:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 16m10s
+2026/01/04 10:36:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 16m20s
+2026/01/04 10:36:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 16m30s
+2026/01/04 10:36:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 16m40s
+2026/01/04 10:36:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 16m50s
+2026/01/04 10:37:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 17m0s
+2026/01/04 10:37:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 17m10s
+2026/01/04 10:37:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 17m20s
+2026/01/04 10:37:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 17m30s
+2026/01/04 10:37:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 17m40s
+2026/01/04 10:37:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 17m50s
+2026/01/04 10:38:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 18m0s
+2026/01/04 10:38:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 18m10s
+2026/01/04 10:38:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 18m20s
+2026/01/04 10:38:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 18m30s
+2026/01/04 10:38:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 18m40s
+2026/01/04 10:38:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 18m50s
+2026/01/04 10:39:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 19m0s
+2026/01/04 10:39:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 19m10s
+2026/01/04 10:39:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 19m20s
+2026/01/04 10:39:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 19m30s
+2026/01/04 10:39:49 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 19m40s
+2026/01/04 10:39:59 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 19m50s
+2026/01/04 10:40:09 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 20m0s
+2026/01/04 10:40:19 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 20m10s
+2026/01/04 10:40:29 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 20m20s
+2026/01/04 10:40:39 ⏳ Progress: 1 running, 13 of 14 completed | Elapsed: 20m30s
+2026/01/04 10:40:46 juice-shop.herokuapp.com: ScanVulnerabilities: Completed
+2026/01/04 10:40:47 juice-shop.herokuapp.com: GenerateReport: Starting...
+2026/01/04 10:40:47 juice-shop.herokuapp.com: GenerateReport: Completed - 0 subdomains, 1 live hosts, 1 findings
+2026/01/04 10:40:47 ✅ juice-shop.herokuapp.com: Workflow recon completed in 20m38s
+2026/01/04 10:40:47 
+2026/01/04 10:40:47 ==============================================================
+2026/01/04 10:40:47 TIMING SUMMARY
+2026/01/04 10:40:47 ==============================================================
+2026/01/04 10:40:47 ✅ demo.testfire.net: 6m52s
+2026/01/04 10:40:47 ✅ ginandjuice.shop: 4m9s
+2026/01/04 10:40:47 ✅ google-gruyere.appspot.com/606449110093000614466175116457519865578: 1m4s
+2026/01/04 10:40:47 ✅ itsecgames.com: 5m6s
+2026/01/04 10:40:47 ✅ pentest-ground.com:81: 3m54s
+2026/01/04 10:40:47 ✅ pentest-ground.com:5013: 3m38s
+2026/01/04 10:40:47 ✅ pentest-ground.com:4280: 2m43s
+2026/01/04 10:40:47 ✅ xss-game.appspot.com/level1/frame: 4m7s
+2026/01/04 10:40:47 ✅ testasp.vulnweb.com: 5m3s
+2026/01/04 10:40:47 ✅ testphp.vulnweb.com: 5m36s
+2026/01/04 10:40:47 ✅ vulnweb.com: 12m11s
+2026/01/04 10:40:47 ✅ zero.webappsecurity.com: 6m1s
+2026/01/04 10:40:47 ✅ juice-shop.herokuapp.com: 20m38s
+2026/01/04 10:40:47 ✅ pentest-ground.com:7001/console/login/LoginForm.jsp: 4m33s
+2026/01/04 10:40:47 --------------------------------------------------------------
+2026/01/04 10:40:47 Total time: 20m38s
+2026/01/04 10:40:47 ==============================================================
+2026/01/04 10:40:47 
+2026/01/04 10:40:47 All tasks completed.

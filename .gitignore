@@ -5,7 +5,7 @@ bin/recon-pipeline
 # Output directory
 out/
 # Various out directories
-out_*/
+# out_*/
 
 # Local Domain files
 domains_local.txt
