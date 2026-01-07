@@ -1,17 +1,17 @@
 
 # Testing/demonstration sites
 
-demo.testfire.net
-ginandjuice.shop
+#demo.testfire.net
+#ginandjuice.shop
 google-gruyere.appspot.com/606449110093000614466175116457519865578
 itsecgames.com
 pentest-ground.com:81
 pentest-ground.com:5013
 pentest-ground.com:4280
 xss-game.appspot.com/level1/frame
-testasp.vulnweb.com
-testphp.vulnweb.com
-vulnweb.com
-zero.webappsecurity.com
-juice-shop.herokuapp.com
-pentest-ground.com:7001/console/login/LoginForm.jsp
+#testasp.vulnweb.com
+#testphp.vulnweb.com
+#vulnweb.com
+#zero.webappsecurity.com
+#juice-shop.herokuapp.com
+#pentest-ground.com:7001/console/login/LoginForm.jsp

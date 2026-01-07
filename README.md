@@ -218,6 +218,90 @@ To build and run the pipeline in one fell swoop:
 make build-run
 ```
 
+### Cross-Platform Builds
+
+The project supports cross-compilation for Windows and macOS. Use the following commands to build binaries for different platforms:
+
+**For Windows (64-bit):**
+
+```bash
+make build-windows
+```
+
+This creates `bin/recon-pipeline-windows.exe`
+
+**For macOS (Intel/AMD64):**
+
+```bash
+make build-macos-amd64
+```
+
+This creates `bin/recon-pipeline-macos-amd64`
+
+**For macOS (Apple Silicon/ARM64):**
+
+```bash
+make build-macos-arm64
+```
+
+This creates `bin/recon-pipeline-macos-arm64`
+
+**For macOS (both architectures):**
+
+```bash
+make build-macos
+```
+
+This builds both Intel and Apple Silicon binaries
+
+**For all platforms:**
+
+```bash
+make build-all
+```
+
+This builds Windows and macOS (both architectures) binaries
+
+### Deployment Package
+
+When distributing the application to others or deploying it to a new system, include the following files:
+
+**Required files:**
+
+- The compiled binary (`recon-pipeline`, `recon-pipeline-windows.exe`, `recon-pipeline-macos-amd64`, or `recon-pipeline-macos-arm64`)
+- `config.yaml` - Configuration file with scanner settings
+- `domains.txt` - Input file containing the list of root domains to scan
+
+**Optional files (if brute-force enumeration is enabled):**
+
+- `wordlists/` directory - Contains wordlists for brute-force subdomain enumeration
+  - `wordlists/subdomains-top1million-5000.txt` (or your custom wordlist)
+
+**Note:** The recipient will still need to have the following tools installed and available in their PATH:
+
+- [Subfinder](https://github.com/projectdiscovery/subfinder)
+- [httpx](https://github.com/projectdiscovery/httpx)
+- [Nuclei](https://github.com/projectdiscovery/nuclei)
+- [puredns](https://github.com/d3mondev/puredns) (only if brute-force is enabled in `config.yaml`)
+- [massdns](https://github.com/blechschmidt/massdns) (only if using puredns)
+
+**Example deployment package structure:**
+
+```
+recon-pipeline-distribution/
+├── recon-pipeline-windows.exe    # or appropriate binary for target OS
+├── config.yaml
+├── domains.txt
+└── wordlists/                    # optional
+    └── subdomains-top1million-5000.txt
+```
+
+The recipient can then:
+
+1. Place the binary in a directory in their PATH, or run it directly
+2. Edit `config.yaml` and `domains.txt` as needed
+3. Run the binary: `./recon-pipeline` (or `recon-pipeline-windows.exe` on Windows)
+
 ### Output
 
 Results are saved in the `out/` directory (or as configured in `config.yaml`), organized by domain.

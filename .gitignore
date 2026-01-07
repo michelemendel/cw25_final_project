@@ -1,6 +1,5 @@
 # Binaries
-/recon-pipeline
-bin/recon-pipeline
+bin/recon-pipeline*
 
 # Output directory
 out/
